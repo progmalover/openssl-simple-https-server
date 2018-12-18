@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<meta http-equiv="Access-Control-Allow-Origin" content="*">
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>VESystem</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <style>
+
+
+        body {
+            text-align: center
+        }
+
+        #divcss5 {
+            width: 300px;
+            height: 100px
+        }
+    </style>
+</head>
+<body>
+    <div id="divcss5">
+        <img src="./localResources/icon.png" />
+        <div id="divcss5">发现当前网站包含视频，将自动重定向到终端浏览器</div>
+        <div id="divcss5"><button type="button" onclick="browserRedirect()">视频重定向到终端播放</button></div>
+    </div>
+</body>
+<script type="text/javascript">
+    function browserRedirect() {
+        var xhr = new window.XMLHttpRequest();
+        //xhr.timeout = 5000;
+        var formData = new FormData();
+        formData.append('url', document.URL);
+        xhr.open('POST', 'http://127.0.0.1:8233/');
+        xhr.send(formData);
+    }
+    browserRedirect();
+</script>
+</html>
